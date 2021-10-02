@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/buildings/base_building.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "BaseEnemy",
+"language": "GDScript",
+"path": "res://entities/enemies/base_enemy.gd"
+}, {
+"base": "Node2D",
+"class": "BaseScenario",
+"language": "GDScript",
+"path": "res://scenarios/base_scenario.gd"
+}, {
 "base": "RigidBody2D",
 "class": "BaseUnit",
 "language": "GDScript",
@@ -28,12 +38,20 @@ _global_script_classes=[ {
 "class": "Groups",
 "language": "GDScript",
 "path": "res://entities/groups.gd"
+}, {
+"base": "Position2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://entities/spawn_point.gd"
 } ]
 _global_script_class_icons={
 "BaseBuilding": "",
+"BaseEnemy": "",
+"BaseScenario": "",
 "BaseUnit": "",
 "DeathBall": "",
-"Groups": ""
+"Groups": "",
+"SpawnPoint": ""
 }
 
 [application]

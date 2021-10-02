@@ -5,6 +5,7 @@ const CAMERA_ZOOM_AMOUNT: Vector2 = Vector2(0.1, 0.1)
 
 onready var camera: Camera2D = $Camera2D
 onready var viewport: Viewport = get_viewport()
+onready var color_rect: ColorRect = $Background/ColorRect
 
 onready var initial_camera_zoom: Vector2 = camera.zoom
 
@@ -13,14 +14,14 @@ var last_mouse_position := Vector2.ZERO
 onready var death_ball: DeathBall = $DeathBall
 
 # TODO stub
-var combat_data
+var scenario: BaseScenario
 
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
 
 func _ready() -> void:
-	pass
+	_setup_from_combat_data()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("secondary"):

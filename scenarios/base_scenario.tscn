@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenarios/base_scenario.gd" type="Script" id=1]
+
+[node name="BaseScenario" type="YSort"]
+script = ExtResource( 1 )
