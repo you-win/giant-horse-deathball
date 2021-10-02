@@ -8,7 +8,7 @@ var sprite_transparency: float = 0.0
 
 onready var area: Area2D = $Area2D
 
-var units_in_area: Array = []
+var units: Array = []
 
 ###############################################################################
 # Builtin functions                                                           #
@@ -18,7 +18,6 @@ func _ready() -> void:
 	sprite_transparency = sprite.modulate.a
 	
 	area.connect("body_entered", self, "_on_body_entered")
-#	area.connect("body_exited", self, "_on_body_exited")
 
 func _physics_process(delta: float) -> void:
 	sprite.modulate.a = lerp(sprite.modulate.a, 0.0, 0.25)
@@ -27,9 +26,9 @@ func _physics_process(delta: float) -> void:
 		global_position = get_global_mouse_position()
 		sprite.modulate.a = sprite_transparency
 	
-	for unit in units_in_area:
+	for unit in units:
+		# TODO still needs tuning
 		unit.apply_central_impulse((global_position - unit.global_position).normalized() * UNIT_SPEED)
-#		unit.linear_velocity = unit.linear_velocity.clamped(100)
 
 ###############################################################################
 # Connections                                                                 #
@@ -37,13 +36,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group(Groups.Group.PLAYER):
-		if not units_in_area.has(body):
-			units_in_area.append(body)
+		if not units.has(body):
+			units.append(body)
 			body.animation_player.play("RESET")
-
-func _on_body_exited(body: Node) -> void:
-	if body.is_in_group(Groups.Group.PLAYER):
-		units_in_area.erase(body)
+			body.death_ball = self
 
 ###############################################################################
 # Private functions                                                           #

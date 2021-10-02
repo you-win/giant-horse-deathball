@@ -1,11 +1,12 @@
 extends Node2D
 
-const CAMERA_SCROLL_SPEED: float = 20.0
+const CAMERA_SCROLL_SPEED: float = 15.0
 const CAMERA_ZOOM_AMOUNT: Vector2 = Vector2(0.1, 0.1)
 
 onready var camera: Camera2D = $Camera2D
 onready var viewport: Viewport = get_viewport()
 onready var color_rect: ColorRect = $Background/ColorRect
+onready var entities: YSort = $Entities
 
 onready var initial_camera_zoom: Vector2 = camera.zoom
 
@@ -21,7 +22,8 @@ var scenario: BaseScenario
 ###############################################################################
 
 func _ready() -> void:
-	_setup_from_combat_data()
+#	_setup()
+	pass
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("secondary"):
@@ -54,9 +56,10 @@ func _unhandled_input(event: InputEvent) -> void:
 # Private functions                                                           #
 ###############################################################################
 
-func _setup_from_combat_data() -> void:
+func _setup() -> void:
+	entities.call_deferred("add_child", scenario)
 	
-	pass
+	# TODO read objectives and background color
 
 ###############################################################################
 # Public functions                                                            #

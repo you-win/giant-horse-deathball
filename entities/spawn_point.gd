@@ -11,6 +11,7 @@ func _ready():
 	var unit = entity.instance()
 	unit.initial_position = global_position
 	get_parent().call_deferred("add_child", unit)
+	queue_free()
 
 ###############################################################################
 # Connections                                                                 #
