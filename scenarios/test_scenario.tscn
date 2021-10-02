@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/player/brown_horse.tscn" type="PackedScene" id=7]
 
 [node name="TestScenario" instance=ExtResource( 1 )]
+objective = 2
 
 [node name="BrownHorse" parent="." index="0" instance=ExtResource( 7 )]
 position = Vector2( 107, -34 )
@@ -21,19 +22,19 @@ position = Vector2( -154, -186 )
 
 [node name="Stable129" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 404, -76 )
-scale = Vector2( -1, 1 )
+flip_sprite = true
 
 [node name="Stable130" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( 665, -31 )
-scale = Vector2( -1, 1 )
+flip_sprite = true
 
 [node name="Stable131" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 803, 91 )
-scale = Vector2( -1, 1 )
+flip_sprite = true
 
 [node name="Stable132" parent="." index="6" instance=ExtResource( 4 )]
 position = Vector2( 781, 260 )
-scale = Vector2( -1, 1 )
+flip_sprite = true
 
 [node name="Fence128" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 366, -244 )

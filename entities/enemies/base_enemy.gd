@@ -67,6 +67,7 @@ func _process(delta: float) -> void:
 
 func _on_kill_tween_complete() -> void:
 	queue_free()
+	SignalBroadcaster.emit_signal("enemy_killed")
 
 func _on_hurtbox(body: Node) -> void:
 	if _is_player_unit(body):
@@ -89,7 +90,8 @@ func _on_undetected(body: Node) -> void:
 
 func _on_launch(body: Node) -> void:
 	if _is_player_unit(body):
-		body.death_ball.units.erase(body)
+		if body.death_ball:
+			body.death_ball.units.erase(body)
 		body.apply_central_impulse((body.global_position - global_position).normalized() * LAUNCH_SPEED)
 
 ###############################################################################

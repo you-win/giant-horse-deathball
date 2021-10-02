@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MEB.mp3-badb8d13da2f1293f3a9e6dddd910013.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/MEB.mp3"
+dest_files=[ "res://.import/MEB.mp3-badb8d13da2f1293f3a9e6dddd910013.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

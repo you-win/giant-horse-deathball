@@ -58,14 +58,16 @@ _global_script_class_icons={
 
 config/name="Giant Horse Deathball"
 run/main_scene="res://screens/main.tscn"
-config/icon="res://assets/icon.png"
+config/icon="res://assets/HorseIcon.png"
 
 [autoload]
 
 AppManager="*res://utils/app_manager.gd"
+SignalBroadcaster="*res://utils/signal_broadcaster.gd"
 
 [debug]
 
+gdscript/warnings/unused_signal=false
 gdscript/warnings/return_value_discarded=false
 
 [display]
@@ -124,6 +126,11 @@ zoom_out={
 middle_click={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+combat_result_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

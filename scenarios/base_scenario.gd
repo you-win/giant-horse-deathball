@@ -1,11 +1,11 @@
 class_name BaseScenario
 extends Node2D
 
-enum Objective { NONE = 0, ENEMY, BUILDING, SAVE }
-var objective = Objective.NONE
-var objective_count: int = 0
+enum Objective { NONE = 0, ENEMY, BUILDING, SAVE, BOSS }
+export(Objective) var objective = Objective.NONE
+export var objective_count: int = 1
 
-var background_color: Color = Color(0.23, 0.39, 0.15)
+export var background_color: Color = Color(0.23, 0.39, 0.15)
 
 ###############################################################################
 # Builtin functions                                                           #

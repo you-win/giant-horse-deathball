@@ -7,6 +7,7 @@ onready var kill_tween: Tween = $KillTween
 onready var health_bar: ProgressBar = $HealthBar
 
 export var health: float = 10.0
+export var flip_sprite: bool = false
 
 export var contains_units: bool = true
 export var unit_amount: int = 1
@@ -24,6 +25,8 @@ func _ready():
 	
 	health_bar.max_value = health
 	health_bar.value = health
+	
+	$Sprite.flip_h = flip_sprite
 
 func _process(delta: float) -> void:
 	if health_bar.modulate.a > 0.0:
@@ -42,6 +45,7 @@ func _on_kill_tween_complete() -> void:
 		get_parent().call_deferred("add_child", unit)
 	
 	queue_free()
+	SignalBroadcaster.emit_signal("building_destroyed")
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group(Groups.Group.PLAYER):
