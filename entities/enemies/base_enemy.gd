@@ -2,7 +2,7 @@ class_name BaseEnemy
 extends KinematicBody2D
 
 const KILL_TWEEN: float = 1.0
-const LAUNCH_SPEED: float = 20.0
+const LAUNCH_SPEED: float = 500.0
 
 onready var hurtbox: Area2D = $Hurtbox
 onready var anim_player: AnimationPlayer = $AnimationPlayer

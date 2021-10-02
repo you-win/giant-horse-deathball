@@ -15,6 +15,9 @@ func _ready():
 func _on_new_game() -> void:
 	# TODO debug
 	var new_screen = load("res://screens/combat_screen.tscn").instance()
+	# TODO debug again
+	var scenario = load("res://scenarios/test_scenario.tscn").instance()
+	new_screen.scenario = scenario
 	AppManager.main.change_screen(new_screen)
 
 func _on_quit() -> void:

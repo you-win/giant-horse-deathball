@@ -22,7 +22,7 @@ var scenario: BaseScenario
 ###############################################################################
 
 func _ready() -> void:
-#	_setup()
+	_setup()
 	pass
 
 func _process(delta: float) -> void:
@@ -57,7 +57,8 @@ func _unhandled_input(event: InputEvent) -> void:
 ###############################################################################
 
 func _setup() -> void:
-	entities.call_deferred("add_child", scenario)
+	if scenario:
+		entities.call_deferred("add_child", scenario)
 	
 	# TODO read objectives and background color
 
