@@ -44,7 +44,6 @@ radius = 17.0294
 [node name="BaseUnit" type="RigidBody2D" groups=[
 "Player",
 ]]
-mode = 3
 gravity_scale = 0.0
 script = ExtResource( 2 )
 

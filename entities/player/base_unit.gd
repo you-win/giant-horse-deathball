@@ -5,6 +5,8 @@ export var damage: float = 1.0
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var initial_position := Vector2.ZERO
+
 #var death_ball: DeathBall
 #
 #var is_under_player_control: bool = false
@@ -15,6 +17,8 @@ onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	animation_player.play("Available")
+	
+	global_position = initial_position
 
 ###############################################################################
 # Connections                                                                 #

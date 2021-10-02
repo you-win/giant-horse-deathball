@@ -16,6 +16,7 @@ layer = -100
 [node name="ColorRect" type="ColorRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.231373, 0.392157, 0.152941, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,23 +28,34 @@ zoom = Vector2( 0.7, 0.7 )
 smoothing_enabled = true
 smoothing_speed = 10.0
 
-[node name="Entities" type="YSort" parent="."]
+[node name="DeathBall" parent="." instance=ExtResource( 1 )]
 
-[node name="DeathBall" parent="Entities" instance=ExtResource( 1 )]
+[node name="Entities" type="YSort" parent="."]
 
 [node name="BrownHorse" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( 107, -34 )
-mode = 0
-gravity_scale = 1.0
 
 [node name="WhiteDuck" parent="Entities" instance=ExtResource( 3 )]
 position = Vector2( -76, 103 )
-mode = 0
 
-[node name="Buildings" type="YSort" parent="Entities"]
-
-[node name="Stable_128" parent="Entities/Buildings" instance=ExtResource( 6 )]
+[node name="Stable128" parent="Entities" instance=ExtResource( 6 )]
 position = Vector2( -154, -186 )
 
-[node name="Fence128" parent="Entities/Buildings" instance=ExtResource( 5 )]
+[node name="Stable129" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 404, -76 )
+scale = Vector2( -1, 1 )
+
+[node name="Stable130" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 665, -31 )
+scale = Vector2( -1, 1 )
+
+[node name="Stable131" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 803, 91 )
+scale = Vector2( -1, 1 )
+
+[node name="Stable132" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( 781, 260 )
+scale = Vector2( -1, 1 )
+
+[node name="Fence128" parent="Entities" instance=ExtResource( 5 )]
 position = Vector2( 366, -244 )

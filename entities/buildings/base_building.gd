@@ -8,12 +8,15 @@ onready var health_bar: ProgressBar = $HealthBar
 
 export var health: float = 10.0
 
+export var contains_units: bool = true
+export var unit_amount: int = 1
+export(Array, PackedScene) var units_to_spawn: Array = []
+
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
 
 func _ready():
-#	kill_tween.interpolate_property($Sprite, "modulate:a", 1.0, 0.0, KILL_TWEEN)
 	kill_tween.interpolate_property(self, "modulate:a", 1.0, 0.0, KILL_TWEEN)
 	kill_tween.connect("tween_all_completed", self, "_on_kill_tween_complete")
 	
@@ -31,6 +34,13 @@ func _process(delta: float) -> void:
 ###############################################################################
 
 func _on_kill_tween_complete() -> void:
+	for i in units_to_spawn:
+		var unit = i.instance()
+		unit.initial_position = global_position
+		unit.initial_position.x += rand_range(-10, 10)
+		unit.initial_position.y += rand_range(-10, 10)
+		get_parent().call_deferred("add_child", unit)
+	
 	queue_free()
 
 func _on_body_entered(body: Node) -> void:

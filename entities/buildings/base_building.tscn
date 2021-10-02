@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/buildings/base_building.gd" type="Script" id=1]
 [ext_resource path="res://assets/building/Buildings_128.png" type="Texture" id=2]
+[ext_resource path="res://entities/player/brown_horse.tscn" type="PackedScene" id=3]
 
 [node name="BaseBuilding" type="StaticBody2D" groups=[
 "Enemy",
 ]]
 script = ExtResource( 1 )
+units_to_spawn = [ ExtResource( 3 ) ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
