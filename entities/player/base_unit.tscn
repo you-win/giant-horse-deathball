@@ -38,8 +38,12 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[node name="BaseUnit" type="RigidBody2D" groups=["Player"]]
+[node name="BaseUnit" type="RigidBody2D" groups=[
+"Player",
+]]
 gravity_scale = 0.0
+contacts_reported = 5
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

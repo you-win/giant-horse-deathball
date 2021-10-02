@@ -3,6 +3,7 @@
 [ext_resource path="res://entities/player/base_unit.tscn" type="PackedScene" id=1]
 
 [node name="WhiteDuck" instance=ExtResource( 1 )]
+damage = 2.0
 
 [node name="Sprite" parent="." index="1"]
 frame = 2

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/player/death_ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player/brown_horse.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/player/white_duck.tscn" type="PackedScene" id=3]
 [ext_resource path="res://screens/combat_screen.gd" type="Script" id=4]
+[ext_resource path="res://entities/player/rubber_duck.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/buildings/128/Stable_128.tscn" type="PackedScene" id=6]
 
 [node name="CombatScreen" type="Node2D"]
 script = ExtResource( 4 )
@@ -32,18 +34,36 @@ smoothing_speed = 10.0
 [node name="BrownHorse" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( 107, -34 )
 gravity_scale = 1.0
+contacts_reported = 0
+contact_monitor = false
 
 [node name="BrownHorse2" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( 105, 113 )
 gravity_scale = 1.0
+contacts_reported = 0
+contact_monitor = false
 
 [node name="BrownHorse3" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( -212, 86 )
 gravity_scale = 1.0
+contacts_reported = 0
+contact_monitor = false
 
 [node name="BrownHorse4" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( -274, -99 )
 gravity_scale = 1.0
+contacts_reported = 0
+contact_monitor = false
 
 [node name="WhiteDuck" parent="Entities" instance=ExtResource( 3 )]
 position = Vector2( -76, 103 )
+contacts_reported = 0
+contact_monitor = false
+
+[node name="RubberDuck" parent="Entities" instance=ExtResource( 5 )]
+position = Vector2( 154, -188 )
+contacts_reported = 0
+contact_monitor = false
+
+[node name="Stable_128" parent="Entities" instance=ExtResource( 6 )]
+position = Vector2( -154, -186 )

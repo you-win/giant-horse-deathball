@@ -1,36 +1,26 @@
-class_name BaseUnit
-extends RigidBody2D
+class_name BaseBuilding
+extends StaticBody2D
 
-export var damage: float = 1.0
+const KILL_TWEEN: float = 1.0
 
-onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var kill_tween: Tween = $KillTween
 
-#var death_ball: DeathBall
-#
-#var is_under_player_control: bool = false
+var health: float = 10.0
 
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
 
 func _ready():
-	animation_player.play("Available")
-	
-	connect("body_entered", self, "_on_body_entered")
-
-func _integrate_forces(state: Physics2DDirectBodyState) -> void:
-	var c = state.get_contact_count()
-	if c > 0:
-		print(self.name)
-		print(c)
+	kill_tween.interpolate_property($Sprite, "modulate:a", 1.0, 0.0, KILL_TWEEN)
+	kill_tween.connect("tween_all_completed", self, "_on_kill_tween_complete")
 
 ###############################################################################
 # Connections                                                                 #
 ###############################################################################
 
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group(Groups.Group.ENEMY):
-		body.receive_damage()
+func _on_kill_tween_complete() -> void:
+	queue_free()
 
 ###############################################################################
 # Private functions                                                           #
@@ -39,3 +29,9 @@ func _on_body_entered(body: Node) -> void:
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
+
+func receive_damage(damage: float) -> void:
+	health -= damage
+	
+	if health <= 0:
+		kill_tween.start()
