@@ -5,6 +5,7 @@ const Group: Dictionary = {
 	"NONE": "None",
 	"PLAYER": "Player",
 	"ENEMY": "Enemy",
+	"ENEMY_ATTACK": "EnemyAttack",
 	"NEUTRAL": "Neutral"
 }
 
