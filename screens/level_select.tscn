@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://screens/level_select.gd" type="Script" id=1]
+[ext_resource path="res://assets/main_theme.theme" type="Theme" id=2]
+[ext_resource path="res://assets/Enemies.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Run"
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Entities/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 8, 10, 20, 25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -169, -79 ), Vector2( -148, -36 ), Vector2( -173, 1 ), Vector2( -140, 27 ), Vector2( -94, -26 ), Vector2( -129, -113 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Entities/Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 8, 20 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0705882, 0.219608, 0.368627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Dialogue" type="PanelContainer" parent="GUI"]
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.4
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GUI/Dialogue"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 610.0
+margin_bottom = 240.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Dialogue/ScrollContainer"]
+margin_right = 600.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Choices" type="PanelContainer" parent="GUI"]
+anchor_left = 0.3
+anchor_top = 0.5
+anchor_right = 0.7
+anchor_bottom = 0.8
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Choices"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 610.0
+margin_bottom = 240.0
+
+[node name="Option1" type="Button" parent="GUI/Choices/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Option2" type="Button" parent="GUI/Choices/VBoxContainer"]
+margin_top = 78.0
+margin_right = 600.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Option3" type="Button" parent="GUI/Choices/VBoxContainer"]
+margin_top = 156.0
+margin_right = 600.0
+margin_bottom = 230.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Run = SubResource( 1 )
+
+[node name="ChatterTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_as_relative = false
+current = true
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="Entities" type="YSort" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Entities"]
+position = Vector2( -169, -79 )
+texture = ExtResource( 3 )
+hframes = 8
+vframes = 6
+frame = 1

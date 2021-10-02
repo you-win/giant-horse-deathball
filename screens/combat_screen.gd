@@ -4,6 +4,7 @@ const CAMERA_SCROLL_SPEED: float = 15.0
 const CAMERA_ZOOM_AMOUNT: Vector2 = Vector2(0.1, 0.1)
 
 const ResultOverlay: PackedScene = preload("res://screens/result_overlay.tscn")
+const LevelSelect: PackedScene = preload("res://screens/level_select.tscn")
 
 onready var camera: Camera2D = $Camera2D
 onready var viewport: Viewport = get_viewport()
@@ -96,8 +97,15 @@ func _on_count_objective() -> void:
 	objective_counter += 1
 
 func _on_combat_result_accept() -> void:
-	# TODO stub
-	pass
+	var new_screen: Node
+	if has_won:
+		new_screen = LevelSelect.instance()
+		# TODO pass params to level select
+		
+	else:
+		new_screen = load("res://screens/combat_screen.tscn").instance()
+		new_screen.scenario = scenario
+	AppManager.main.change_screen(new_screen)
 
 ###############################################################################
 # Private functions                                                           #

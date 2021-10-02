@@ -24,6 +24,6 @@ func _ready():
 
 func change_screen(screen: Node) -> void:
 	current_screen.queue_free()
-	call_deferred("add_child", screen)
 	yield(get_tree(), "idle_frame")
+	call_deferred("add_child", screen)
 	current_screen = screen
