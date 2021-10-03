@@ -40,6 +40,7 @@ onready var option_4: Button = $GUI/Choices/VBoxContainer/Option4
 ###############################################################################
 
 func _ready():
+	BgmManager.play_level_select()
 	$AnimationPlayer.play("Run")
 	
 	chatter_timer.connect("timeout", self, "_on_chatter")

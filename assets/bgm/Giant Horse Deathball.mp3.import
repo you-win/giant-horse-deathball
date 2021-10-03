@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Giant Horse Deathball.mp3-7da591bf7e750dc12156035cd5e85a8c.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Giant Horse Deathball.mp3"
+dest_files=[ "res://.import/Giant Horse Deathball.mp3-7da591bf7e750dc12156035cd5e85a8c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

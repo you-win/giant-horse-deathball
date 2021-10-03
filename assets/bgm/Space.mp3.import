@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Space.mp3-283fc81a6afdebc9472d5bd27f2b9eea.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Space.mp3"
+dest_files=[ "res://.import/Space.mp3-283fc81a6afdebc9472d5bd27f2b9eea.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

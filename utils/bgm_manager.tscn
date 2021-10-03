@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://utils/bgm_manager.gd" type="Script" id=1]
+[ext_resource path="res://assets/bgm/Meadow Meadow.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/bgm/Giant Horse Deathball.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/bgm/Send It.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/bgm/Space.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/bgm/TakeMeHomeCountryRoadsByTeamYouwin.mp3" type="AudioStream" id=6]
+
+[node name="BGMManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Title" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Combat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="LevelSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Boss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="YouWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

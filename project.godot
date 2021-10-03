@@ -77,6 +77,7 @@ config/icon="res://assets/HorseIcon.png"
 AppManager="*res://utils/app_manager.gd"
 SignalBroadcaster="*res://utils/signal_broadcaster.gd"
 SfxManager="*res://utils/sfx_manager.tscn"
+BgmManager="*res://utils/bgm_manager.tscn"
 
 [debug]
 

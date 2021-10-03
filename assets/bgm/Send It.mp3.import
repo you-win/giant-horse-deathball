@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Send It.mp3-411c75739c4b9282f898b5c9110fe566.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Send It.mp3"
+dest_files=[ "res://.import/Send It.mp3-411c75739c4b9282f898b5c9110fe566.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

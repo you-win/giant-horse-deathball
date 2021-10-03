@@ -115,12 +115,10 @@ func _on_combat_result_accept() -> void:
 	if has_won:
 		AppManager.player_session_score += possible_score
 		new_screen = LevelSelect.instance()
-		# TODO pass params to level select
 		
 	else:
 		new_screen = load("res://screens/combat_screen.tscn").instance()
 		new_screen.scenario_path = scenario_path
-#		new_screen.scenario = scenario.duplicate()
 	AppManager.main.change_screen(new_screen)
 
 ###############################################################################
@@ -150,24 +148,28 @@ func _setup() -> void:
 			if number <= 1:
 				noun = "enemy"
 			SignalBroadcaster.connect("enemy_killed", self, "_on_count_objective")
+			BgmManager.play_combat()
 		BaseScenario.Objective.BUILDING:
 			verb = "Destroy"
 			noun = "buildings"
 			if number <= 1:
 				noun = "building"
 			SignalBroadcaster.connect("building_destroyed", self, "_on_count_objective")
+			BgmManager.play_combat()
 		BaseScenario.Objective.SAVE:
 			verb = "Save"
 			noun = "animals"
 			if number <= 1:
 				noun = "animal"
 			is_save_animals = true
+			BgmManager.play_combat()
 		BaseScenario.Objective.BOSS:
 			verb = "Kill"
 			noun = "bosses"
 			if number <= 1:
 				noun = "boss"
 			SignalBroadcaster.connect("boss_killed", self, "_on_count_objective")
+			
 
 	$GUI/InfoBox/VBoxContainer/Objective/Value.text = final_objective_value % [verb, number, noun]
 	
