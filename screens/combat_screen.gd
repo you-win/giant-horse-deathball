@@ -1,6 +1,6 @@
 extends Node2D
 
-const CAMERA_SCROLL_SPEED: float = 15.0
+const CAMERA_SCROLL_SPEED: float = 20.0
 const CAMERA_ZOOM_AMOUNT: Vector2 = Vector2(0.1, 0.1)
 
 const ResultOverlay: PackedScene = preload("res://screens/result_overlay.tscn")
@@ -16,6 +16,8 @@ onready var death_ball_counter_container: VBoxContainer = $GUI/UnitCount/DeathBa
 onready var unit_count_ui: Label = $GUI/UnitCount/DeathBallCounter/Value
 onready var countdown_container: VBoxContainer = $GUI/UnitCount/Countdown
 onready var lose_counter_ui: Label = $GUI/UnitCount/Countdown/Value
+
+onready var score_counter_ui: Label = $GUI/Score/HBoxContainer/Value
 
 onready var initial_camera_zoom: Vector2 = camera.zoom
 
@@ -35,6 +37,8 @@ var objective_counter: int = 0
 var expected_count: int = 9999
 var has_won := false
 
+var possible_score: float = 0.0
+
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
@@ -51,7 +55,12 @@ func _process(delta: float) -> void:
 		var current_mouse_position = viewport.get_mouse_position()
 		
 		# TODO add momentum
-		camera.translate((last_mouse_position - current_mouse_position).normalized() * CAMERA_SCROLL_SPEED * delta * 60)
+		var zoom_modifier = camera.zoom.x - initial_camera_zoom.x
+		if zoom_modifier <= 0:
+			zoom_modifier = 1
+		else:
+			zoom_modifier = 7 * zoom_modifier
+		camera.translate((last_mouse_position - current_mouse_position).normalized() * CAMERA_SCROLL_SPEED * delta * 60 * zoom_modifier)
 		
 		last_mouse_position = current_mouse_position
 
@@ -77,6 +86,9 @@ func _process(delta: float) -> void:
 	
 	if objective_counter >= expected_count:
 		_display_results(true)
+	elif (not has_won and not has_lost):
+		possible_score -= delta
+		score_counter_ui.text = "%.2f" % possible_score
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("zoom_in"):
@@ -100,6 +112,7 @@ func _on_count_objective() -> void:
 func _on_combat_result_accept() -> void:
 	var new_screen: Node
 	if has_won:
+		AppManager.player_session_score += possible_score
 		new_screen = LevelSelect.instance()
 		# TODO pass params to level select
 		
@@ -122,6 +135,8 @@ func _setup() -> void:
 	
 	color_rect.color = scenario.background_color
 	expected_count = scenario.objective_count
+	
+	possible_score = scenario.score
 
 	var final_objective_value: String = "%s  %d  %s"
 	var noun: String = "owo"

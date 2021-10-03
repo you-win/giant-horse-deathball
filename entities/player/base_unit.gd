@@ -18,7 +18,8 @@ var death_ball: DeathBall
 func _ready():
 	animation_player.play("Available")
 	
-	global_position = initial_position
+	if initial_position != Vector2.ZERO:
+		global_position = initial_position
 
 ###############################################################################
 # Connections                                                                 #

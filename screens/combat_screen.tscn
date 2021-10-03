@@ -197,4 +197,41 @@ text = "-1"
 align = 1
 valign = 1
 
+[node name="Score" type="PanelContainer" parent="GUI"]
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.1
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+mouse_filter = 2
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Score"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="GUI/Score/HBoxContainer"]
+margin_top = 16.0
+margin_right = 138.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+text = "Score:"
+align = 1
+
+[node name="Value" type="Label" parent="GUI/Score/HBoxContainer"]
+margin_left = 142.0
+margin_top = 16.0
+margin_right = 280.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+text = "0"
+align = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
