@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenarios/base_scenario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/buildings/128/fence_128.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://entities/spawn_point.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player/brown_horse.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/buildings/128/fence_v_128.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/buildings/128/portapotty_128.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/buildings/128/hay_bale_h_128.tscn" type="PackedScene" id=10]
 
 [node name="TestScenario" instance=ExtResource( 1 )]
 objective = 2
@@ -100,3 +102,16 @@ flip_sprite = true
 [node name="FenceV133" parent="." index="25" instance=ExtResource( 8 )]
 position = Vector2( -371, 505 )
 flip_sprite = true
+
+[node name="Portapotty128" parent="." index="26" instance=ExtResource( 9 )]
+position = Vector2( -155, 357 )
+
+[node name="HayBaleH128" parent="." index="27" instance=ExtResource( 10 )]
+position = Vector2( 294, 459 )
+
+[node name="HayBaleH129" parent="." index="28" instance=ExtResource( 10 )]
+position = Vector2( 466, 475 )
+flip_sprite = true
+
+[node name="HayBaleH130" parent="." index="29" instance=ExtResource( 10 )]
+position = Vector2( 646, 569 )

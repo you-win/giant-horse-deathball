@@ -1,27 +1,23 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://entities/buildings/base_building.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/buildings/128/base_128_building.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17, 174 )
+extents = Vector2( 105, 18 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 177 )
+extents = Vector2( 110, 24 )
 
-[node name="FenceV128" instance=ExtResource( 1 )]
-health = 1000.0
-unit_spawn_count = 0
-units_to_spawn = [  ]
+[node name="FeedingTrough128" instance=ExtResource( 1 )]
+unit_spawn_count = 2
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 7, -6 )
-hframes = 1
-vframes = 1
+position = Vector2( 2, -44 )
 region_enabled = true
-region_rect = Rect2( 0, 128, 128, 384 )
+region_rect = Rect2( 640, 256, 256, 128 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 2 )

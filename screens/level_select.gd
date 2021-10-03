@@ -81,7 +81,7 @@ func _create_new_chat_bubble() -> void:
 func _generate_chat_text() -> String:
 	var result: String = ""
 	
-	result = CHAT_MESSAGES[round(rand_range(0, CHAT_MESSAGES.size()))]
+	result = CHAT_MESSAGES[round(rand_range(0, CHAT_MESSAGES.size() - 1))]
 	
 	return result
 

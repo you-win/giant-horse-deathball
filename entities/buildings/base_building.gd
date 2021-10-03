@@ -2,7 +2,19 @@ class_name BaseBuilding
 extends StaticBody2D
 
 const SPAWNABLE_UNITS: Array = [
-	
+	preload("res://entities/player/brown_horse.tscn"),
+	preload("res://entities/player/cat.tscn"),
+	preload("res://entities/player/dog.tscn"),
+	preload("res://entities/player/kuma.tscn"),
+	preload("res://entities/player/loaf.tscn"),
+	preload("res://entities/player/mouse.tscn"),
+	preload("res://entities/player/poop_emoji.tscn"),
+	preload("res://entities/player/rabbit.tscn"),
+	preload("res://entities/player/rubber_duck.tscn"),
+	preload("res://entities/player/snail.tscn"),
+	preload("res://entities/player/snake.tscn"),
+	preload("res://entities/player/turtle.tscn"),
+	preload("res://entities/player/white_duck.tscn")
 ]
 
 const KILL_TWEEN: float = 1.0
@@ -42,15 +54,19 @@ func _process(delta: float) -> void:
 func _on_kill_tween_complete() -> void:
 	for i in units_to_spawn:
 		unit_spawn_count -= 1
-		var unit = i.instance()
+		var unit: BaseUnit = i.instance()
 		unit.initial_position = global_position
 		unit.initial_position.x += rand_range(-10, 10)
 		unit.initial_position.y += rand_range(-10, 10)
 		get_parent().call_deferred("add_child", unit)
 	
-	if unit_spawn_count > 0:
-		
-		pass
+	while unit_spawn_count > 0:
+		unit_spawn_count -= 1
+		var unit: BaseUnit = SPAWNABLE_UNITS[round(rand_range(0, SPAWNABLE_UNITS.size() - 1))].instance()
+		unit.initial_position = global_position
+		unit.initial_position.x += rand_range(-10, 10)
+		unit.initial_position.y += rand_range(-10, 10)
+		get_parent().call_deferred("add_child", unit)
 	
 	queue_free()
 	SignalBroadcaster.emit_signal("building_destroyed")

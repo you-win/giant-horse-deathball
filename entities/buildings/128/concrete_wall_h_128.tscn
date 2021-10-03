@@ -10,6 +10,8 @@ extents = Vector2( 175, 20 )
 
 [node name="ConcreteWallH" instance=ExtResource( 1 )]
 health = 10000.0
+unit_spawn_count = 0
+units_to_spawn = [  ]
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

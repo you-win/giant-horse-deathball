@@ -11,6 +11,7 @@ extents = Vector2( 80, 32 )
 
 [node name="House1_128" instance=ExtResource( 1 )]
 health = 100.0
+unit_spawn_count = 2
 units_to_spawn = [ ExtResource( 2 ) ]
 
 [node name="CollisionShape2D" parent="." index="0"]

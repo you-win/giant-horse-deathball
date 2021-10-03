@@ -4,23 +4,21 @@
 [ext_resource path="res://entities/player/cat.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 99, 37 )
+extents = Vector2( 32, 23 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 103, 43 )
+extents = Vector2( 37, 27 )
 
-[node name="House2_128" instance=ExtResource( 1 )]
-health = 100.0
-unit_spawn_count = 2
+[node name="HayBaleV128" instance=ExtResource( 1 )]
 units_to_spawn = [ ExtResource( 2 ) ]
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 1, -27 )
+position = Vector2( 8, -35 )
 region_enabled = true
-region_rect = Rect2( 512, 512, 256, 128 )
+region_rect = Rect2( 512, 256, 128, 128 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 2 )
