@@ -30,6 +30,11 @@ onready var dialogue: VBoxContainer = $GUI/Dialogue/ScrollContainer/VBoxContaine
 var current_message: Label
 var is_left := true
 
+onready var option_1: Button = $GUI/Choices/VBoxContainer/Option1
+onready var option_2: Button = $GUI/Choices/VBoxContainer/Option2
+onready var option_3: Button = $GUI/Choices/VBoxContainer/Option3
+onready var option_4: Button = $GUI/Choices/VBoxContainer/Option4
+
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
@@ -39,6 +44,28 @@ func _ready():
 	
 	chatter_timer.connect("timeout", self, "_on_chatter")
 	chatter_timer.start(CHATTER_TIME)
+	
+	var available_levels: Array = [1, 2, 3]
+	for key in AppManager.levels_beaten.keys():
+		if key in available_levels:
+			if AppManager.levels_beaten[key]:
+				available_levels.erase(key)
+	
+	if available_levels.empty(): # Display boss level
+		option_4.visible = true
+		option_4.connect("pressed", self, "_on_option_4")
+	else:
+		for i in available_levels:
+			match i:
+				1:
+					option_1.visible = true
+					option_1.connect("pressed", self, "_on_option_1")
+				2:
+					option_2.visible = true
+					option_2.connect("pressed", self, "_on_option_2")
+				3:
+					option_3.visible = true
+					option_3.connect("pressed", self, "_on_option_3")
 
 ###############################################################################
 # Connections                                                                 #
@@ -60,6 +87,18 @@ func _on_chatter() -> void:
 		ChatStates.SEND:
 			current_message.text = _generate_chat_text()
 			chat_state = ChatStates.ONE
+
+func _on_option_1() -> void:
+	_change_screen("res://scenarios/scenario_1.tscn")
+
+func _on_option_2() -> void:
+	_change_screen("res://scenarios/scenario_2.tscn")
+
+func _on_option_3() -> void:
+	_change_screen("res://scenarios/scenario_3.tscn")
+
+func _on_option_4() -> void:
+	_change_screen("res://scenarios/final_scenario.tscn")
 
 ###############################################################################
 # Private functions                                                           #
@@ -84,6 +123,12 @@ func _generate_chat_text() -> String:
 	result = CHAT_MESSAGES[round(rand_range(0, CHAT_MESSAGES.size() - 1))]
 	
 	return result
+
+func _change_screen(path: String) -> void:
+	var new_screen = load("res://screens/combat_screen.tscn").instance()
+	new_screen.scenario_path = path
+	
+	AppManager.main.change_screen(new_screen)
 
 ###############################################################################
 # Public functions                                                            #

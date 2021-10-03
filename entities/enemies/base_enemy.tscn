@@ -62,7 +62,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 resource_name = "Rest"
 tracks/0/type = "value"
 tracks/0/path = NodePath("LaunchAttack/CollisionShape2D:position")
@@ -134,15 +134,17 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Launch = SubResource( 3 )
-anims/Rest = SubResource( 4 )
+anims/Rest = SubResource( 6 )
 
 [node name="LaunchAttack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaunchAttack"]
-position = Vector2( 16, 0 )
+position = Vector2( 6, 0 )
 shape = SubResource( 5 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="LaunchAttack/CollisionShape2D"]
+visible = false
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 6

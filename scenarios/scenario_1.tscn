@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenarios/base_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/player/brown_horse.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/buildings/128/fence_128.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/buildings/128/fence_v_128.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/player/turtle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/player/mouse.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/buildings/128/down_with_horses_128.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/buildings/128/house_1_128.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/buildings/128/outhouse_128.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/buildings/128/stop_sign_128.tscn" type="PackedScene" id=10]
+
+[node name="Scenario1" instance=ExtResource( 1 )]
+objective = 1
+objective_count = 20
+background_color = Color( 0.258824, 0.341176, 0.219608, 1 )
+
+[node name="BrownHorse" parent="YSort" index="0" instance=ExtResource( 2 )]
+
+[node name="Buildings" type="YSort" parent="YSort" index="1"]
+
+[node name="Fence128" parent="YSort/Buildings" index="0" instance=ExtResource( 3 )]
+position = Vector2( 2, 251 )
+
+[node name="Fence129" parent="YSort/Buildings" index="1" instance=ExtResource( 3 )]
+position = Vector2( 340, 247 )
+
+[node name="Fence130" parent="YSort/Buildings" index="2" instance=ExtResource( 3 )]
+position = Vector2( -349, 249 )
+
+[node name="Fence131" parent="YSort/Buildings" index="3" instance=ExtResource( 3 )]
+position = Vector2( -681, 244 )
+
+[node name="Fence132" parent="YSort/Buildings" index="4" instance=ExtResource( 3 )]
+position = Vector2( 678, 248 )
+
+[node name="FenceV128" parent="YSort/Buildings" index="5" instance=ExtResource( 4 )]
+position = Vector2( -877, 76 )
+
+[node name="FenceV129" parent="YSort/Buildings" index="6" instance=ExtResource( 4 )]
+position = Vector2( -880, -234 )
+
+[node name="FenceV130" parent="YSort/Buildings" index="7" instance=ExtResource( 4 )]
+position = Vector2( 849, 87 )
+flip_sprite = true
+
+[node name="FenceV131" parent="YSort/Buildings" index="8" instance=ExtResource( 4 )]
+position = Vector2( 847, -243 )
+flip_sprite = true
+
+[node name="Mouse" parent="YSort/Buildings" index="9" instance=ExtResource( 6 )]
+position = Vector2( -108, -35 )
+
+[node name="BrownHorse" parent="YSort/Buildings" index="10" instance=ExtResource( 2 )]
+position = Vector2( -100, 60 )
+
+[node name="Turtle" parent="YSort/Buildings" index="11" instance=ExtResource( 5 )]
+position = Vector2( 128, 60 )
+
+[node name="DownWithHorses128" parent="YSort/Buildings" index="12" instance=ExtResource( 7 )]
+position = Vector2( -588, -135 )
+
+[node name="House1_128" parent="YSort/Buildings" index="13" instance=ExtResource( 8 )]
+position = Vector2( 492, -261 )
+flip_sprite = true
+
+[node name="Outhouse128" parent="YSort/Buildings/House1_128" index="5" instance=ExtResource( 9 )]
+position = Vector2( -1240, 6 )
+
+[node name="StopSign128" parent="YSort/Buildings/House1_128" index="6" instance=ExtResource( 10 )]
+position = Vector2( -900, 54 )

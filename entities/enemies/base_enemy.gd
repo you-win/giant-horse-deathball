@@ -2,7 +2,7 @@ class_name BaseEnemy
 extends KinematicBody2D
 
 const KILL_TWEEN: float = 1.0
-const LAUNCH_SPEED: float = 500.0
+export var launch_speed: float = 500.0
 
 onready var hurtbox: Area2D = $Hurtbox
 onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -16,7 +16,7 @@ var initial_position := Vector2.ZERO
 var detected_units: Array = []
 
 var new_action_counter: float = 0.0
-const NEW_ACTION_TIME: float = 10.0
+export var new_action_time: float = 10.0
 var is_action_locked := false
 
 export var health: float = 10.0
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	
 	if not is_action_locked:
 		new_action_counter += delta
-		if new_action_counter >= NEW_ACTION_TIME:
+		if new_action_counter >= new_action_time:
 			new_action_counter = 0.0
 			is_action_locked = true
 		
@@ -93,7 +93,8 @@ func _on_launch(body: Node) -> void:
 	if _is_player_unit(body):
 		if body.death_ball:
 			body.death_ball.units.erase(body)
-		body.apply_central_impulse((body.global_position - global_position).normalized() * LAUNCH_SPEED)
+		body.apply_central_impulse((body.global_position - global_position).normalized() * launch_speed)
+		SignalBroadcaster.emit_signal("hit")
 
 ###############################################################################
 # Private functions                                                           #

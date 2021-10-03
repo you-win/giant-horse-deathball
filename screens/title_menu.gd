@@ -13,13 +13,9 @@ func _ready():
 ###############################################################################
 
 func _on_new_game() -> void:
-	# TODO debug
 	var new_screen = load("res://screens/combat_screen.tscn").instance()
-	# TODO debug again
-#	var scenario = load("res://scenarios/tutorial_scenario.tscn").instance()
 	new_screen.scenario_path = "res://scenarios/tutorial_scenario.tscn"
-#	new_screen.scenario = scenario
-#	var new_screen = load("res://screens/level_select.tscn").instance()
+#	new_screen.scenario_path = "res://scenarios/final_scenario.tscn"
 	AppManager.main.change_screen(new_screen)
 
 func _on_quit() -> void:

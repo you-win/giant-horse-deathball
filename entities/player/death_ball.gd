@@ -28,6 +28,7 @@ func _physics_process(_delta: float) -> void:
 	
 	for unit in units:
 		# TODO still needs tuning
+		# TODO sometimes units are null??? might be the horses sign
 		unit.apply_central_impulse((global_position - unit.global_position).normalized() * UNIT_SPEED)
 
 ###############################################################################
