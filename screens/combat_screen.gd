@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 		possible_score = clamp(possible_score, 0.0, possible_score)
 		score_counter_ui.text = "%.2f" % possible_score
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("zoom_in"):
 		camera.zoom -= CAMERA_ZOOM_AMOUNT
 		if camera.zoom.x < 0.3:

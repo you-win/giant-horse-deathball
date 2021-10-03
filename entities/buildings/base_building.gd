@@ -90,3 +90,6 @@ func receive_damage(damage: float) -> void:
 	
 	if health <= 0:
 		kill_tween.start()
+		SignalBroadcaster.emit_signal("killed")
+	else:
+		SignalBroadcaster.emit_signal("hit")

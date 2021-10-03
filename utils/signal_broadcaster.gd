@@ -7,3 +7,7 @@ signal building_destroyed()
 signal boss_killed()
 
 signal combat_result_accept()
+
+signal hit()
+
+signal killed()

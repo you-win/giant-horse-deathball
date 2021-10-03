@@ -39,6 +39,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/groups.gd"
 }, {
+"base": "Node",
+"class": "HitSoundPlayer",
+"language": "GDScript",
+"path": "res://utils/hit_sound_player.gd"
+}, {
+"base": "Node",
+"class": "KillSoundPlayer",
+"language": "GDScript",
+"path": "res://utils/kill_sound_player.gd"
+}, {
 "base": "Position2D",
 "class": "SpawnPoint",
 "language": "GDScript",
@@ -51,6 +61,8 @@ _global_script_class_icons={
 "BaseUnit": "",
 "DeathBall": "",
 "Groups": "",
+"HitSoundPlayer": "",
+"KillSoundPlayer": "",
 "SpawnPoint": ""
 }
 
@@ -64,6 +76,7 @@ config/icon="res://assets/HorseIcon.png"
 
 AppManager="*res://utils/app_manager.gd"
 SignalBroadcaster="*res://utils/signal_broadcaster.gd"
+SfxManager="*res://utils/sfx_manager.tscn"
 
 [debug]
 

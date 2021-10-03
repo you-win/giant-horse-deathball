@@ -115,3 +115,6 @@ func receive_damage(damage: float) -> void:
 		kill_tween.start()
 		speed = 0.0
 		is_action_locked = true
+		SignalBroadcaster.emit_signal("killed")
+	else:
+		SignalBroadcaster.emit_signal("hit")

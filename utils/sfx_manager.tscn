@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://utils/hit_sound_player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://utils/sfx_manager.gd" type="Script" id=2]
+[ext_resource path="res://utils/kill_sound_player.tscn" type="PackedScene" id=3]
+
+[node name="SfxManager" type="Node"]
+script = ExtResource( 2 )
+
+[node name="HitSoundPlayer" parent="." instance=ExtResource( 1 )]
+
+[node name="HitSoundPlayer2" parent="." instance=ExtResource( 1 )]
+
+[node name="HitSoundPlayer3" parent="." instance=ExtResource( 1 )]
+
+[node name="KillSoundPlayer" parent="." instance=ExtResource( 3 )]
+
+[node name="KillSoundPlayer2" parent="." instance=ExtResource( 3 )]
