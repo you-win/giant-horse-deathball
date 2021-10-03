@@ -16,6 +16,7 @@
 
 [node name="FinalScenario" instance=ExtResource( 1 )]
 objective = 4
+objective_count = 5
 background_color = Color( 0.560784, 0.223529, 0.223529, 1 )
 score = 600.0
 
@@ -44,7 +45,7 @@ position = Vector2( 100, -5 )
 [node name="Demons" type="YSort" parent="YSort" index="1"]
 
 [node name="DemonBoss" parent="YSort/Demons" index="0" instance=ExtResource( 3 )]
-position = Vector2( 422, -262 )
+position = Vector2( 428, -384 )
 new_action_time = 10.0
 
 [node name="Demon" parent="YSort/Demons" index="1" instance=ExtResource( 4 )]

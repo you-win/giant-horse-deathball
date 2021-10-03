@@ -39,11 +39,12 @@ onready var option_3: Button = $GUI/Choices/VBoxContainer/Option3
 ###############################################################################
 
 func _ready():
-	BgmManager.play_level_select()
 	$AnimationPlayer.play("Run")
 	
 	chatter_timer.connect("timeout", self, "_on_chatter")
 	chatter_timer.start(CHATTER_TIME)
+	
+	$GUI/CurrentScore/HBoxContainer/Value.text = "%.2f" % AppManager.player_session_score
 	
 	var available_levels: Array = [1, 2]
 	for key in AppManager.levels_beaten.keys():
@@ -52,9 +53,18 @@ func _ready():
 				available_levels.erase(key)
 	
 	if available_levels.empty(): # Display boss level
-		option_3.visible = true
-		option_3.connect("pressed", self, "_on_option_4")
+		if not AppManager.levels_beaten[3]:
+			option_3.visible = true
+			option_3.connect("pressed", self, "_on_option_3")
+			BgmManager.play_level_select()
+		else:
+			BgmManager.play_you_win()
+			var label := Label.new()
+			label.autowrap = true
+			label.text = "Thanks for playing! You finished with a score of %.2f" % AppManager.player_session_score
+			$GUI/Choices/VBoxContainer.add_child(label)
 	else:
+		BgmManager.play_level_select()
 		for i in available_levels:
 			match i:
 				1:

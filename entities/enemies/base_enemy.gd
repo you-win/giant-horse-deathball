@@ -1,6 +1,8 @@
 class_name BaseEnemy
 extends KinematicBody2D
 
+const HitEffect: PackedScene = preload("res://entities/hit_effect.tscn")
+
 const KILL_TWEEN: float = 1.0
 export var launch_speed: float = 500.0
 
@@ -73,6 +75,7 @@ func _on_kill_tween_complete() -> void:
 func _on_hurtbox(body: Node) -> void:
 	if _is_player_unit(body):
 		receive_damage(body.damage)
+		body.add_hit_effect()
 
 func _on_anim_finished(anim_name: String) -> void:
 	if anim_name == "Rest":

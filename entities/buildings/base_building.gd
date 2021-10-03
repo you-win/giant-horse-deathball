@@ -74,6 +74,7 @@ func _on_kill_tween_complete() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group(Groups.Group.PLAYER):
 		receive_damage(body.damage)
+		body.add_hit_effect()
 
 ###############################################################################
 # Private functions                                                           #

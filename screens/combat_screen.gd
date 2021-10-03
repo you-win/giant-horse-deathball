@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 		if zoom_modifier <= 0:
 			zoom_modifier = 1
 		else:
-			zoom_modifier = 7 * zoom_modifier
+			zoom_modifier = 5 * zoom_modifier
 		camera.translate((last_mouse_position - current_mouse_position).normalized() * CAMERA_SCROLL_SPEED * delta * 60 * zoom_modifier)
 		
 		last_mouse_position = current_mouse_position
@@ -115,7 +115,15 @@ func _on_combat_result_accept() -> void:
 	if has_won:
 		AppManager.player_session_score += possible_score
 		new_screen = LevelSelect.instance()
-		
+		match scenario.objective:
+			BaseScenario.Objective.SAVE:
+				AppManager.levels_beaten[0] = true
+			BaseScenario.Objective.ENEMY:
+				AppManager.levels_beaten[1] = true
+			BaseScenario.Objective.BUILDING:
+				AppManager.levels_beaten[2] = true
+			BaseScenario.Objective.BOSS:
+				AppManager.levels_beaten[3] = true
 	else:
 		new_screen = load("res://screens/combat_screen.tscn").instance()
 		new_screen.scenario_path = scenario_path
@@ -168,7 +176,8 @@ func _setup() -> void:
 			noun = "bosses"
 			if number <= 1:
 				noun = "boss"
-			SignalBroadcaster.connect("boss_killed", self, "_on_count_objective")
+#			SignalBroadcaster.connect("boss_killed", self, "_on_count_objective")
+			SignalBroadcaster.connect("enemy_killed", self, "_on_count_objective")
 			BgmManager.play_boss()
 
 	$GUI/InfoBox/VBoxContainer/Objective/Value.text = final_objective_value % [verb, number, noun]

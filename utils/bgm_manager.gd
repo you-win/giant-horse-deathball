@@ -39,6 +39,7 @@ func _play_track(asp: AudioStreamPlayer) -> void:
 	if current_track == asp:
 		if tween.is_active(): # If the tween is still fading tracks, don't exit early
 			tween.stop_all()
+			current_track.stop()
 			next_track.stop()
 		else:
 			return

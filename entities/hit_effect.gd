@@ -1,27 +1,22 @@
-class_name BaseUnit
-extends RigidBody2D
+extends Particles2D
 
-const HitEffect: PackedScene = preload("res://entities/hit_effect.tscn")
+var initial_position: Vector2 = Vector2.ZERO
 
-export var damage: float = 1.0
-
-onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-var initial_position := Vector2.ZERO
-
-var death_ball: DeathBall
-#
-#var is_under_player_control: bool = false
+const LIFETIME: float = 2.0
+var lifetime_counter: float = 0.0
 
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
 
 func _ready():
-	animation_player.play("Available")
-	
 	if initial_position != Vector2.ZERO:
 		global_position = initial_position
+
+func _process(delta: float) -> void:
+	lifetime_counter += delta
+	if lifetime_counter >= LIFETIME:
+		queue_free()
 
 ###############################################################################
 # Connections                                                                 #
@@ -34,9 +29,3 @@ func _ready():
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
-
-func add_hit_effect() -> void:
-	var hit_effect = HitEffect.instance()
-	hit_effect.initial_position = global_position
-	
-	get_parent().call_deferred("add_child", hit_effect)
