@@ -29,6 +29,7 @@ var lose_counter: float = 0.0
 var has_lost := false
 
 var scenario: BaseScenario
+var scenario_path: String = ""
 var is_save_animals := false
 var objective_counter: int = 0
 var expected_count: int = 9999
@@ -104,7 +105,8 @@ func _on_combat_result_accept() -> void:
 		
 	else:
 		new_screen = load("res://screens/combat_screen.tscn").instance()
-		new_screen.scenario = scenario
+		new_screen.scenario_path = scenario_path
+#		new_screen.scenario = scenario.duplicate()
 	AppManager.main.change_screen(new_screen)
 
 ###############################################################################
@@ -113,10 +115,10 @@ func _on_combat_result_accept() -> void:
 
 func _setup() -> void:
 	# Just in case we load in without a scenario
-	if not scenario:
-		scenario = load("res://scenarios/test_scenario.tscn").instance()
-		scenario.objective = BaseScenario.Objective.BUILDING
-		scenario.objective_count = 1
+	if not scenario_path:
+		scenario_path = "res://scenarios/tutorial_scenario.tscn"
+	
+	scenario = load(scenario_path).instance()
 	
 	color_rect.color = scenario.background_color
 	expected_count = scenario.objective_count

@@ -11,6 +11,7 @@ extents = Vector2( 93, 28 )
 extents = Vector2( 97, 34 )
 
 [node name="Barn128" instance=ExtResource( 1 )]
+health = 200.0
 unit_spawn_count = 3
 units_to_spawn = [ ExtResource( 3 ), ExtResource( 2 ) ]
 

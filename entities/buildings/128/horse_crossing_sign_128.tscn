@@ -8,6 +8,7 @@
 extents = Vector2( 13, 13 )
 
 [node name="HorseCrossingSign128" instance=ExtResource( 1 )]
+health = 25.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

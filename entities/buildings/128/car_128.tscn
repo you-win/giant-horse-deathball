@@ -11,6 +11,7 @@ extents = Vector2( 117, 25 )
 extents = Vector2( 124, 36 )
 
 [node name="Car128" instance=ExtResource( 1 )]
+health = 150.0
 units_to_spawn = [ ExtResource( 2 ), ExtResource( 3 ) ]
 
 [node name="CollisionShape2D" parent="." index="0"]

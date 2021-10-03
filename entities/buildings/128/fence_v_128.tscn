@@ -9,7 +9,7 @@ extents = Vector2( 17, 174 )
 extents = Vector2( 20, 177 )
 
 [node name="FenceV128" instance=ExtResource( 1 )]
-health = 1000.0
+health = 10000.0
 unit_spawn_count = 0
 units_to_spawn = [  ]
 

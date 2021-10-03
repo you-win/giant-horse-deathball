@@ -27,7 +27,8 @@ export var speed: float = 50.0
 ###############################################################################
 
 func _ready():
-	global_position = initial_position
+	if initial_position != Vector2.ZERO:
+		global_position = initial_position
 	
 	health_bar.max_value = health
 	health_bar.value = health
