@@ -33,7 +33,6 @@ var is_left := true
 onready var option_1: Button = $GUI/Choices/VBoxContainer/Option1
 onready var option_2: Button = $GUI/Choices/VBoxContainer/Option2
 onready var option_3: Button = $GUI/Choices/VBoxContainer/Option3
-onready var option_4: Button = $GUI/Choices/VBoxContainer/Option4
 
 ###############################################################################
 # Builtin functions                                                           #
@@ -46,15 +45,15 @@ func _ready():
 	chatter_timer.connect("timeout", self, "_on_chatter")
 	chatter_timer.start(CHATTER_TIME)
 	
-	var available_levels: Array = [1, 2, 3]
+	var available_levels: Array = [1, 2]
 	for key in AppManager.levels_beaten.keys():
 		if key in available_levels:
 			if AppManager.levels_beaten[key]:
 				available_levels.erase(key)
 	
 	if available_levels.empty(): # Display boss level
-		option_4.visible = true
-		option_4.connect("pressed", self, "_on_option_4")
+		option_3.visible = true
+		option_3.connect("pressed", self, "_on_option_4")
 	else:
 		for i in available_levels:
 			match i:
@@ -64,9 +63,6 @@ func _ready():
 				2:
 					option_2.visible = true
 					option_2.connect("pressed", self, "_on_option_2")
-				3:
-					option_3.visible = true
-					option_3.connect("pressed", self, "_on_option_3")
 
 ###############################################################################
 # Connections                                                                 #
@@ -96,9 +92,6 @@ func _on_option_2() -> void:
 	_change_screen("res://scenarios/scenario_2.tscn")
 
 func _on_option_3() -> void:
-	_change_screen("res://scenarios/scenario_3.tscn")
-
-func _on_option_4() -> void:
 	_change_screen("res://scenarios/final_scenario.tscn")
 
 ###############################################################################

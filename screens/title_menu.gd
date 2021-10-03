@@ -14,8 +14,8 @@ func _ready():
 
 func _on_new_game() -> void:
 	var new_screen = load("res://screens/combat_screen.tscn").instance()
-	new_screen.scenario_path = "res://scenarios/tutorial_scenario.tscn"
-#	new_screen.scenario_path = "res://scenarios/final_scenario.tscn"
+#	new_screen.scenario_path = "res://scenarios/tutorial_scenario.tscn"
+	new_screen.scenario_path = "res://scenarios/final_scenario.tscn"
 	AppManager.main.change_screen(new_screen)
 
 func _on_quit() -> void:

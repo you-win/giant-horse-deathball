@@ -34,11 +34,11 @@ smoothing_speed = 10.0
 
 [node name="InfoBox" type="PanelContainer" parent="GUI"]
 anchor_top = 0.9
-anchor_right = 0.4
+anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = 10.0
-margin_right = -10.0
+margin_right = -5.0
 margin_bottom = -10.0
 mouse_filter = 2
 theme = ExtResource( 2 )
@@ -49,94 +49,61 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/InfoBox"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 610.0
+margin_right = 775.0
 margin_bottom = 60.0
 
 [node name="Objective" type="HBoxContainer" parent="GUI/InfoBox/VBoxContainer"]
-margin_right = 600.0
+margin_right = 765.0
 margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="GUI/InfoBox/VBoxContainer/Objective"]
 margin_top = 2.0
-margin_right = 298.0
+margin_right = 380.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Objective:"
 
 [node name="Value" type="Label" parent="GUI/InfoBox/VBoxContainer/Objective"]
-margin_left = 302.0
+margin_left = 384.0
 margin_top = 2.0
-margin_right = 600.0
+margin_right = 765.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 autowrap = true
 
 [node name="Current" type="HBoxContainer" parent="GUI/InfoBox/VBoxContainer"]
 margin_top = 27.0
-margin_right = 600.0
+margin_right = 765.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="GUI/InfoBox/VBoxContainer/Current"]
 margin_top = 2.0
-margin_right = 298.0
+margin_right = 380.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Current:"
 
 [node name="Value" type="Label" parent="GUI/InfoBox/VBoxContainer/Current"]
-margin_left = 302.0
+margin_left = 384.0
 margin_top = 2.0
-margin_right = 600.0
+margin_right = 765.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "changeme"
 autowrap = true
 
-[node name="DialogueBox" type="PanelContainer" parent="GUI"]
-anchor_left = 0.6
+[node name="UnitCount" type="PanelContainer" parent="GUI"]
+anchor_left = 0.5
 anchor_top = 0.9
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
+margin_left = 5.0
 margin_top = 10.0
 margin_right = -10.0
-margin_bottom = -10.0
-mouse_filter = 2
-theme = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/DialogueBox"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 610.0
-margin_bottom = 60.0
-
-[node name="TextureRect" type="TextureRect" parent="GUI/DialogueBox/HBoxContainer"]
-margin_right = 297.0
-margin_bottom = 50.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="GUI/DialogueBox/HBoxContainer"]
-margin_left = 301.0
-margin_right = 599.0
-margin_bottom = 50.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-autowrap = true
-
-[node name="UnitCount" type="PanelContainer" parent="GUI"]
-anchor_left = 0.4
-anchor_top = 0.9
-anchor_right = 0.6
-anchor_bottom = 1.0
-margin_top = 10.0
 margin_bottom = -10.0
 theme = ExtResource( 2 )
 __meta__ = {
@@ -173,11 +140,11 @@ valign = 1
 [node name="Countdown" type="VBoxContainer" parent="GUI/UnitCount"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 310.0
+margin_right = 775.0
 margin_bottom = 60.0
 
 [node name="Label" type="Label" parent="GUI/UnitCount/Countdown"]
-margin_right = 300.0
+margin_right = 765.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -188,7 +155,7 @@ autowrap = true
 
 [node name="Value" type="Label" parent="GUI/UnitCount/Countdown"]
 margin_top = 24.0
-margin_right = 300.0
+margin_right = 765.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
