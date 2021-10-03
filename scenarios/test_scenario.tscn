@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenarios/base_scenario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/buildings/128/fence_128.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://entities/enemies/farmer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/spawn_point.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player/brown_horse.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/buildings/128/fence_v_128.tscn" type="PackedScene" id=8]
 
 [node name="TestScenario" instance=ExtResource( 1 )]
 objective = 2
@@ -39,18 +40,63 @@ flip_sprite = true
 [node name="Fence128" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 366, -244 )
 
-[node name="SpawnPoint" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Fence129" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 712, -251 )
+
+[node name="Fence130" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 1066, -254 )
+
+[node name="Fence131" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 9, -274 )
+
+[node name="Fence132" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( -238, -285 )
+
+[node name="Fence133" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( -194, 676 )
+
+[node name="Fence134" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( 154, 687 )
+
+[node name="Fence135" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 505, 694 )
+
+[node name="Fence136" parent="." index="15" instance=ExtResource( 2 )]
+position = Vector2( 832, 701 )
+
+[node name="SpawnPoint" parent="." index="16" instance=ExtResource( 6 )]
 position = Vector2( 480, 198 )
 entity = ExtResource( 5 )
 
-[node name="SpawnPoint2" parent="." index="9" instance=ExtResource( 6 )]
+[node name="SpawnPoint2" parent="." index="17" instance=ExtResource( 6 )]
 position = Vector2( 407, 290 )
 entity = ExtResource( 5 )
 
-[node name="SpawnPoint3" parent="." index="10" instance=ExtResource( 6 )]
+[node name="SpawnPoint3" parent="." index="18" instance=ExtResource( 6 )]
 position = Vector2( 181, 332 )
 entity = ExtResource( 5 )
 
-[node name="SpawnPoint4" parent="." index="11" instance=ExtResource( 6 )]
+[node name="SpawnPoint4" parent="." index="19" instance=ExtResource( 6 )]
 position = Vector2( 618, 377 )
 entity = ExtResource( 5 )
+
+[node name="FenceV128" parent="." index="20" instance=ExtResource( 8 )]
+position = Vector2( 990, -125 )
+
+[node name="FenceV129" parent="." index="21" instance=ExtResource( 8 )]
+position = Vector2( 993, 211 )
+
+[node name="FenceV130" parent="." index="22" instance=ExtResource( 8 )]
+position = Vector2( 997, 553 )
+
+[node name="FenceV131" parent="." index="23" instance=ExtResource( 8 )]
+position = Vector2( -374, -178 )
+flip_sprite = true
+
+[node name="FenceV132" parent="." index="24" instance=ExtResource( 8 )]
+position = Vector2( -370, 153 )
+flip_sprite = true
+
+[node name="FenceV133" parent="." index="25" instance=ExtResource( 8 )]
+position = Vector2( -371, 505 )
+flip_sprite = true

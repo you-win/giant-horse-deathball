@@ -1,6 +1,10 @@
 class_name BaseBuilding
 extends StaticBody2D
 
+const SPAWNABLE_UNITS: Array = [
+	
+]
+
 const KILL_TWEEN: float = 1.0
 
 onready var kill_tween: Tween = $KillTween
@@ -9,8 +13,7 @@ onready var health_bar: ProgressBar = $HealthBar
 export var health: float = 10.0
 export var flip_sprite: bool = false
 
-export var contains_units: bool = true
-export var unit_amount: int = 1
+export var unit_spawn_count: int = 1
 export(Array, PackedScene) var units_to_spawn: Array = []
 
 ###############################################################################
@@ -38,11 +41,16 @@ func _process(delta: float) -> void:
 
 func _on_kill_tween_complete() -> void:
 	for i in units_to_spawn:
+		unit_spawn_count -= 1
 		var unit = i.instance()
 		unit.initial_position = global_position
 		unit.initial_position.x += rand_range(-10, 10)
 		unit.initial_position.y += rand_range(-10, 10)
 		get_parent().call_deferred("add_child", unit)
+	
+	if unit_spawn_count > 0:
+		
+		pass
 	
 	queue_free()
 	SignalBroadcaster.emit_signal("building_destroyed")
