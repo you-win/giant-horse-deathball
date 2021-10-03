@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TakeMeHomeCountryRoadsByTeamYouwin.mp3-aac9880b17142fe703766c876e69b1a5.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/TakeMeHomeCountryRoadsByTeamYouwin.mp3"
+dest_files=[ "res://.import/TakeMeHomeCountryRoadsByTeamYouwin.mp3-aac9880b17142fe703766c876e69b1a5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

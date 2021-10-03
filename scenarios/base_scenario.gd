@@ -7,7 +7,7 @@ export var objective_count: int = 1
 
 export var background_color: Color = Color(0.23, 0.39, 0.15)
 
-export var score: float = 300.0
+export var score: float = 60.0
 
 ###############################################################################
 # Builtin functions                                                           #

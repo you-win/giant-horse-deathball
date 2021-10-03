@@ -88,6 +88,7 @@ func _process(delta: float) -> void:
 		_display_results(true)
 	elif (not has_won and not has_lost):
 		possible_score -= delta
+		possible_score = clamp(possible_score, 0.0, possible_score)
 		score_counter_ui.text = "%.2f" % possible_score
 
 func _unhandled_input(event: InputEvent) -> void:
